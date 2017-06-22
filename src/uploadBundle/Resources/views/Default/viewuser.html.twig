@@ -1,0 +1,63 @@
+{% include 'uploadBundle:Default:header.html.twig' %}
+
+{% block body %}
+    <title>{% block title %} Symfony PHPUnit Demo| View User!{% endblock %}</title>
+    <style>
+        .form-style-10{
+                width: 600px !important;
+        }
+       .value {
+            width: 50%;
+            float: right;
+            color: black;
+            font-size: 18px;
+        }
+        .key{
+            width: 50%;
+            float: left;
+            color: black;
+            font-size: 18px;
+        }
+        .viewrow{
+                height: 15px;
+        }
+       .div-first {
+                height: 140px;
+        }
+        .previous {
+     background: #2aad89;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+    font-size: 15px;
+        }
+    </style>    
+   
+    <div class="form-style-10">
+        <h1>View Details<span> </span></h1>
+            <div class ="div-first"><img id="uploadedimage" style="width: 150px; height: 150px;float: right;" src="/uploads/{{data.file}}"></div>
+            <div class="inner-wrap div-second">
+                <label class="viewrow"><span class="key">First Name     :</span><span class="value"> {{data.firstName}}</span></label>
+                <label class="viewrow"><span class="key">Last Name      :</span><span class="value">{{data.lastName}}</span></label>
+                <label class="viewrow"><span class="key">Address One    :</span><span class="value">{{data.address}}</span></label>
+                <label class="viewrow"><span class="key">Address Two    :</span><span class="value">{{data.addresstwo}}</span></label>
+                <label class="viewrow"><span class="key">Email          :</span><span class="value"> {{data.email}}</span></label>
+                <label class="viewrow"><span class="key">Phone  :</span> <span class="value">{{data.phone}}</span></label>
+                <label class="viewrow"><span class="key">Created Date  :</span> <span class="value">{{data.createdDate.date |date("d-M-Y")}}</span></label>
+                <label class="viewrow"><span class="key">Updated Date  :</span> <span class="value">{{data.modifiedDate.date |date("d-M-Y")}}</span></label>
+                <input value="{{data.id}}" type="hidden" class=""  id="id" name="id">
+            </div>
+           <div class="button-section">
+               <a href="{{path('upload_view')}}" class="previous">Go To View Page</a></button> 
+            </div>
+    </div>
+{% endblock %}
+{% include 'uploadBundle:Default:footer.html.twig' %}

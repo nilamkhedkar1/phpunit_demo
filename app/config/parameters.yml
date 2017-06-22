@@ -1,0 +1,13 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: phpunit_sqlite_testing_1
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: 192.168.3.178
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt

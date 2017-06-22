@@ -1,0 +1,57 @@
+{% include 'uploadBundle:Default:header.html.twig' %}
+{% block body %}
+    <style>
+        #users tr { text-align: left;}
+        #users_length,#users_info{ margin: 1% 18%;}
+        #users_filter{ margin: 1% 18%;}
+        #users_paginate{margin-right: 18%;}
+        </style>
+     
+          <title>{% block title %} Symfony PHPUnit Demo| List Note{% endblock %}</title>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
+    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <div hight="20%"></div>
+   <body> 
+    <table id="users" class="display" cellspacing="0" width="65%">
+        <thead>
+            <tr>
+                
+                <th>User Name</th>
+                <th>User Note</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for book_type in data %}
+                <tr>
+                    <td>{{book_type .name}}</td>
+                    <td>{{book_type .note}}</td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#users').DataTable({
+                "ordering": false,
+                 //"order": [[ 0, "desc" ]]
+            });
+        });
+        
+        function fnRemoveContent(id){
+            if (confirm("Are you sure you want to delete?")) {
+                $.ajax({        
+                    url: '{{path('upload_delete')}}',
+                    type: 'post',             
+                    data: {'id' : id},
+                    success: function(response) {
+                        window.location.reload();
+                    }           
+                });
+            }
+        }
+    </script>
+    </body>
+{% endblock %}
+{% include 'uploadBundle:Default:footer.html.twig' %}

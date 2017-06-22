@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+   {% block stylesheets %}
+            {% stylesheets
+                '@uploadBundle/Resources/public/css/common.css'
+                '@uploadBundle/Resources/public/css/view.css'
+                filter='cssrewrite'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+    {% endblock %}
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script> 
+
+</head>
+
+
+<header>
+    <h1>Symfony PHPUnit Demo</h1>
+        <nav>
+            <ul>
+                <a href="{{path('upload_homepage')}}"><li>Home</li></a>
+                <a href="{{path('upload_register')}}"><li>Register</li></a>
+                <a href="{{path('upload_view')}}"><li>List User</li></a>
+                <a href="{{path('user_note')}}"><li>Add Note</li></a>
+                 <a href="{{path('view_note')}}"><li>List Note</li></a>
+            </ul>
+        </nav>
+    <div style="clear: both"></div>
+</header>
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+

@@ -1,0 +1,25 @@
+upload_homepage:
+    path:     /
+    defaults: { _controller: uploadBundle:Default:index }
+upload_register:
+    path:     /register/
+    defaults: { _controller: uploadBundle:Default:register }
+upload_view:
+    path:     /list/
+    defaults: { _controller: uploadBundle:Default:view }
+upload_edit:
+    path:     /edit/{id}
+    defaults: { _controller: uploadBundle:Default:edit }
+upload_delete:
+    path:     /delete
+    defaults: { _controller: uploadBundle:Default:delete }
+upload_viewuser:
+    path:     /viewuser/{id}
+    defaults: { _controller: uploadBundle:Default:viewuser }
+user_note:
+    path:     /note
+    defaults: { _controller: uploadBundle:Default:userNote }
+view_note:
+    path:     /listnote/
+    defaults: { _controller: uploadBundle:Default:viewNote }
+    

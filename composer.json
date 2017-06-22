@@ -1,0 +1,85 @@
+{
+    "name": "Heroku How To",
+    "license": "MIT",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]        
+    },
+    "require": {
+        "php": "~5.6",
+        "symfony/symfony": "2.7.*",
+        "doctrine/orm": "^2.4.8",
+        "doctrine/doctrine-bundle": "~1.4",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.11.3",
+        "sensio/distribution-bundle": "~4.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~2.7",
+        "phpunit/phpunit": "4.8.*"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~2.7"
+    },
+    "scripts": {
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "pre-install-cmd": [
+            "HerokuDatabase::populateEnvironment"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ],
+        "compile": [
+          "rm web/app_dev.php",
+          "php app/console assetic:dump --no-debug",
+          "php app/console doctrine:schema:update --force",
+          "cp  app/xdebug.so  ~/.heroku/php/lib/php/extensions/no-debug-non-zts-20131226",
+          "cp 150-ext-xdebug.ini ~/.heroku/php/etc/php/conf.d",
+          "bin/phpunit -c app",
+          "cd web/uploads && tar czf coverage.tar.gz coverage"
+        ]        
+    },
+    "config": {
+        "bin-dir": "bin",
+        "platform": {
+            "php": "5.6"
+        }
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml",
+            "env-map": {
+                "database_host": "DATABASE_HOST",
+                "database_port": "DATABASE_PORT",
+                "database_name": "DATABASE_NAME",
+                "database_user": "DATABASE_USER",
+                "database_password": "DATABASE_PASSWORD"
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Project Test Suite" tests="8" assertions="10" failures="0" errors="0" time="31.895217">
+    <testsuite name="uploadBundle\Tests\Controller\DefaultControllerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Controller/DefaultControllerTest.php" tests="5" assertions="7" failures="0" errors="0" time="30.817078">
+      <testcase name="testIndex" class="uploadBundle\Tests\Controller\DefaultControllerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Controller/DefaultControllerTest.php" line="47" assertions="2" time="24.965609"/>
+      <testcase name="testRegister" class="uploadBundle\Tests\Controller\DefaultControllerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Controller/DefaultControllerTest.php" line="59" assertions="1" time="0.945844"/>
+      <testcase name="testView" class="uploadBundle\Tests\Controller\DefaultControllerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Controller/DefaultControllerTest.php" line="72" assertions="1" time="2.507999"/>
+      <testcase name="testEdit" class="uploadBundle\Tests\Controller\DefaultControllerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Controller/DefaultControllerTest.php" line="82" assertions="2" time="1.623132"/>
+      <testcase name="testDelete" class="uploadBundle\Tests\Controller\DefaultControllerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Controller/DefaultControllerTest.php" line="94" assertions="1" time="0.774494"/>
+    </testsuite>
+    <testsuite name="uploadBundle\Tests\Services\UserManagerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Services/UserManagerTest.php" tests="3" assertions="3" failures="0" errors="0" time="1.078139">
+      <testcase name="testSaveUserDetails" class="uploadBundle\Tests\Services\UserManagerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Services/UserManagerTest.php" line="33" assertions="1" time="0.328189"/>
+      <testcase name="testupdateUserDetails" class="uploadBundle\Tests\Services\UserManagerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Services/UserManagerTest.php" line="48" assertions="1" time="0.442581"/>
+      <testcase name="testSaveNote" class="uploadBundle\Tests\Services\UserManagerTest" file="/var/www/html/test/newupload/src/uploadBundle/Tests/Services/UserManagerTest.php" line="67" assertions="1" time="0.307369"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

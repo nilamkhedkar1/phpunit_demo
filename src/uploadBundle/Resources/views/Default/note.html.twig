@@ -1,0 +1,57 @@
+{% include 'uploadBundle:Default:header.html.twig' %}
+{% block body %}
+     <title>{% block title %} Symfony PHPUnit Demo| Add Note Page{% endblock %}</title>
+     
+      <style>
+         .previous {
+                background: #2aad89;
+               padding: 8px 20px 8px 20px;
+               border-radius: 5px;
+               -webkit-border-radius: 5px;
+               -moz-border-radius: 5px;
+               color: #fff;
+               text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+               font: normal 30px 'Bitter', serif;
+               -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+               -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+               box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+               border: 1px solid #257C9E;
+               font-size: 15px;
+        }
+     </style>
+    <script type="text/javascript">
+        function validateForm() {
+
+            //alert($('input[type="file"]').val());
+            var name = $("#name").val();
+            var note = $("#note").val();
+            
+            if (name == "") {
+                alert("Please enter the User Name");
+                return false;
+            }
+            if (note == "") {
+                alert("Please enter the note");
+                return false;
+            }
+            
+
+        }
+
+    </script>
+    <div class="form-style-10">
+        <h1>Add Note !<span></span></h1>
+        <form id="addBook" method="post" class="form" name="add" role="form"  onsubmit="return validateForm()" >
+
+            <div class="inner-wrap">
+                <label>User Name <input type="text" class=""  id="name" name="name"></label>
+                <label>User Note <textarea type="text" class=""  id="note" name="note"></textarea></label>
+            </div>
+            <div class="button-section">
+               <a href="{{path('upload_view')}}" class="previous">Go To View Page</a>  <input type="submit" name="Sign Up" />
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+{% include 'uploadBundle:Default:footer.html.twig' %}

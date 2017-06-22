@@ -1,0 +1,5 @@
+services:
+    user:
+        class: uploadBundle\Services\UserManager
+        arguments: ['@doctrine.orm.entity_manager']
+

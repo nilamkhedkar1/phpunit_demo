@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="uploadBundle\Tests\Services\UserManagerTest" file="/var/www/html/newupload_new/src/uploadBundle/Tests/Services/UserManagerTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.676412">
+    <testcase name="testSaveUserDetails" class="uploadBundle\Tests\Services\UserManagerTest" file="/var/www/html/newupload_new/src/uploadBundle/Tests/Services/UserManagerTest.php" line="44" assertions="1" time="0.676412"/>
+  </testsuite>
+</testsuites>
